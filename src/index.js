@@ -40,21 +40,21 @@ window.onload = function() {
 
   document.getElementById('blue-food').onclick = function() {
     const newState = stateControl(blueFood);
-    increasePlantImgSize(newState.soil);
+    increasePlantImgSize(5);
     document.getElementById('soil-value').innerText = `Soil: ${newState.soil}`;
   };
 
   document.getElementById('hydrate').onclick = function() {
     const newState = stateControl(hydrate);
-    increasePlantImgSize(5);
-    document.getElementById('water-value').innerText = `Water: ${currentState.water}`;
+    increasePlantImgSize(1);
+    document.getElementById('water-value').innerText = `Water: ${newState.water}`;
   };
   
-  // document.getElementById('sunlight').onclick = function() {
-  //   const newState = stateControl(sunlight);
-  //   increasePlantImgSize(5);
-  //   document.getElementById('light-value').innerText = `Sunlight: ${currentState.light}`;
-  // };
+  document.getElementById('sunlight').onclick = function() {
+    const newState = stateControl(light);
+    increasePlantImgSize(1);
+    document.getElementById('light-value').innerText = `Sunlight: ${newState.light}`;
+  };
   
   // document.getElementById('daisy').onclick = function() {
   //   const newState = stateControl(hydrate);
