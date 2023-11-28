@@ -1,18 +1,18 @@
-import { changePlantState } from "../src/js/Plant.js"
+import { changeState } from "../src/js/Plant.js"
 
-describe(changePlantState, () => {
+describe(changeState, () => {
   
-    let plant;
+    let state;
   beforeEach(() => {
-    plant = { 
-      water: 0
+    state = { 
+      prop: 0
     }
   });
 
-  test('should change state for selected property of plant, and return new state', () => {
-    const property = "water";
-    const newStatePlant = changePlantState(plant, property);
-    expect(newStatePlant[property]).toEqual(1)
+  test('should change state for selected property of object, and return new state', () => {
+    const property = prop;
+    const newState = changeState(state, property);
+    expect(newState[property]).toEqual(1)
   });
 })
 
