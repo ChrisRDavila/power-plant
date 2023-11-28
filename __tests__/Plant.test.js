@@ -10,8 +10,8 @@ describe(hydrate, () => {
   });
 
   test("should change state for property of water", () => {
-    hydrate(plant);
-    expect(plant.water).toEqual(1);
+    const newStatePlant = hydrate(plant);
+    expect(newStatePlant.water).toEqual(1);
   });
 
 
