@@ -8,6 +8,8 @@ import { blueFood } from "../src/js/Plant.js";
 import { hydrate } from "../src/js/Plant.js";
 import { light } from "../src/js/Plant.js";
 import { killDaisy } from "../src/js/Plant.js";
+import { plantType } from "../src/js/Plant.js";
+
 
 const stateControl = storeState();
 
@@ -16,6 +18,7 @@ function handleSampleForm() {
   document.getElementById("soil-value").innerText = null;
   document.getElementById("water-value").innerText = null;
   document.getElementById("light-value").innerText = null;
+  document.getElementById("name-value").innerText = null;
   const soilP = document.createElement("p");
   pTag.append(document.getElementById("blue-food").value);
   document.getElementById("soil-value").append(soilP);document.getElementById("soil-value").innerText = null;
@@ -25,6 +28,10 @@ function handleSampleForm() {
   const lightP = document.createElement("p");
   pTag.append(document.getElementById("sunlight").value);
   document.getElementById("light-value").append(lightP);
+  const nameP = document.createElement("p");
+  pTag.append(document.getElementById("daisy").value);
+  document.getElementById("name-value").append(lightP);
+  
 }
 
 function increasePlantImgSize(amount) {
@@ -56,11 +63,10 @@ window.onload = function() {
     document.getElementById('light-value').innerText = `Sunlight: ${newState.light}`;
   };
   
-  // document.getElementById('daisy').onclick = function() {
-  //   const newState = stateControl(hydrate);
-  //   increasePlantImgSize(5);
-  //   document.getElementById('water-value').innerText = `Water: ${currentState.water}`;
-  // };
+  document.getElementById('daisy').onclick = function() {
+    const newDaisy = plantType({})("daisy");
+    console.log(newDaisy);
+  };
 };
 
 

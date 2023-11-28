@@ -18,13 +18,42 @@ export const storeState = () => {
   }
 }
 
-export const daisy = (name, color) => {
-  let state = {
-    name: "daisy",
-    change: "flower"
-  };
-  return {...state}
-}
+export function plantType(state) {
+  return function (type) {
+    if (type === "daisy") {
+      return {
+        ...state,
+        name: "daisy",
+        happiness: 4,
+      }
+    }
+    else if (type === "rose") {
+      return {
+        ...state,
+        name: "rose",
+        smelliness: 5,
+      }
+    }
+  }
+}  
+
+
+// export const daisy = (name, color) => {
+//   let state = {
+//     name: "daisy",
+//     change: "flower"
+//   };
+//   return {...state}
+// }
+
+// export const daisy = (name) => {
+//   let state = daisyState {
+    
+//   }
+// }
+
+// let fireDragonJoe = Object.create(dragons);
+// Object.keys(fireDragonJoe) 
 
 export const blueFood = changeState("soil")(5);
 export const hydrate = changeState("water")(1);
