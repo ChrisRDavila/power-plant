@@ -1,42 +1,52 @@
 import { hydrate } from "../src/js/Plant.js"
 import { feed } from "../src/js/Plant.js"
+import { changePlantState } from "..src/js/Plant.js"
 
-describe(hydrate, () => {
+describe(changePlantState, () => {
   
-  let plant;
+    let plant;
   beforeEach(() => {
     plant = { 
       water: 0
     }
   });
 
-  test("should change state for property of water", () => {
-    const newStatePlant = hydrate(plant);
-    expect(newStatePlant.water).toEqual(1);
-  });
+  test('should change state for selected property of plant, and return new state', () => {
+    const newStatePlant = changePlantState(plant, property);
+    const property = "water";
+    expect(newStatePlant[property]).toEqual(1)
+});
 })
 
+// describe(hydrate, () => {
+  
+//   let plant;
+//   beforeEach(() => {
+//     plant = { 
+//       water: 0
+//     }
+//   });
 
-describe(feed, () => {
-
-  let plant;
-  beforeEach(() => {
-    plant = {
-      soil: 0
-    }
-  });
-
-  test("should change state for property of soil", () => {
-    const newStatePlant = feed(plant);
-    expect(newStatePlant.soil).toEqual(1);
-  });
-
-})
+//   test("should change state for property of water", () => {
+//     const newStatePlant = hydrate(plant);
+//     expect(newStatePlant.water).toEqual(1);
+//   });
+// })
 
 
-// const hydrate = (plant) => {
-//   return {
-//     ...plant,
-//     water: (plant.water || 0) + 1
-//   }
-// };
+// describe(feed, () => {
+
+//   let plant;
+//   beforeEach(() => {
+//     plant = {
+//       soil: 0
+//     }
+//   });
+
+//   test("should change state for property of soil", () => {
+//     const newStatePlant = feed(plant);
+//     expect(newStatePlant.soil).toEqual(1);
+//   });
+
+// })
+
