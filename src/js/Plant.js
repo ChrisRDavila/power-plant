@@ -18,12 +18,32 @@ export const storeState = () => {
   }
 }
 
-export const daisy = (name) => {
+export const daisy = (name, color) => {
   let state = {
-    name: "daisy"
+    name: "daisy",
+    change: "flower"
   };
   return {...state}
 }
+
+export const blueFood = changeState("soil")(5);
+export const hydrate = changeState("water")(1);
+export const light = changeState("light")(1);
+
+
+// export const killDaisy = (daisy) => {
+//   return (value) => {
+//     return (state) => (
+//     ...daisy,
+//     change: "dead"
+//   }
+// } 
+
+export const killDaisy = (state) => {
+  return {...state, change: "dead"}
+}
+
+
 
 // export const hydrate = (plant) => {
 //   return {

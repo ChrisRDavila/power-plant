@@ -1,14 +1,16 @@
 import { changeState } from "../src/js/Plant.js"
 import { storeState } from "../src/js/Plant.js"
 import { daisy } from "../src/js/Plant.js"
+import { blueFood } from "../src/js/Plant.js"
+import { hydrate } from "../src/js/Plant.js"
+import { light } from "../src/js/Plant.js"
+import { killDaisy } from "../src/js/Plant.js"
 
 describe(changeState, () => {
   
   let state;
   beforeEach(() => {
-    state = { 
-      // prop: 0
-    }
+    state = {}
   });
 
   test('should change state for selected property of object, and return new state', () => {
@@ -48,17 +50,25 @@ describe(storeState, () => {
     expect(changedStateofObject.soil).toEqual(5);
 
   });
-  
-  describe(daisy, () => {
+})
 
-    let state = {};
-    
-    test('should return state object with name property of daisy', () => {
-        const daisyState = daisy(state)
-        expect(daisyState.name).toEqual("daisy")
-    })
+
+describe(daisy, () => {
+
+  let state = {};
+  
+  test('should return state object with name property of daisy', () => {
+    const daisyState = daisy(state)
+    expect(daisyState.name).toEqual("daisy")
+  })
+
+  test('should change the daisy property to dead', () => {
+    const daisyState = daisy(state)
+    const deadDaisy = killDaisy(daisyState)
+    expect(deadDaisy.change).toEqual("dead")
   })
 })
+
 
 
 
