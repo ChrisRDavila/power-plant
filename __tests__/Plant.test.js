@@ -17,6 +17,26 @@ describe(changeState, () => {
   });
 })
 
+
+describe(storeState, () => {
+
+  let state;
+  beforeEach(() => {
+    state = { 
+      prop: 0
+    }
+  });
+
+  test('should return initial state when no changes are made', () => {
+    const initialState = {}
+    
+    expect(state).toEqual(newState)
+  });
+})
+
+
+
+
 // describe(hydrate, () => {
   
 //   let plant;
