@@ -1,11 +1,13 @@
 import { changeState } from "../src/js/Plant.js"
+import { storeState } from "../src/js/Plant.js"
+import { daisy } from "../src/js/Plant.js"
 
 describe(changeState, () => {
   
   let state;
   beforeEach(() => {
     state = { 
-      prop: 0
+      // prop: 0
     }
   });
 
@@ -15,23 +17,47 @@ describe(changeState, () => {
     const newState = changeState(property)(value)(state);
     expect(newState[property]).toEqual(2)
   });
+
+  // test('should create state that includes a name value attributed to given value', () => {
+  //   const property = "name";
+  //   const value = "daisy";
+  //   const daisyState = changeState(property)(value)(state);
+  //   expect(daisyState.name).toEqual("daisy")
+
+  // })
 })
 
 
 describe(storeState, () => {
 
   let state;
+  const stateControl = storeState();
   beforeEach(() => {
     state = { 
-      prop: 0
     }
   });
 
   test('should return initial state when no changes are made', () => {
-    const initialState = {}
-    
-    expect(state).toEqual(newState)
+    const changedStateofObject = stateControl()
+    expect(changedStateofObject).toEqual(stateControl())
   });
+
+  test('should return changed state according to type of change (ie bluefood) introduced', () => {
+    const blueFood = changeState('soil')(5);
+    const changedStateofObject = stateControl(blueFood);
+    expect(changedStateofObject.soil).toEqual(5);
+
+  });
+  
+  describe(daisy, () => {
+
+    let state = {};
+    
+    test('should return state object with name property of daisy', () => {
+        const daisyState = daisy(state)
+        expect(daisyState.name).toEqual("daisy")
+    })
+  })
 })
 
 
