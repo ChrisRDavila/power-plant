@@ -9,6 +9,7 @@ import { hydrate } from "../src/js/Plant.js";
 import { light } from "../src/js/Plant.js";
 import { killDaisy } from "../src/js/Plant.js";
 import { plantType } from "../src/js/Plant.js";
+import { happier } from "../src/js/Plant.js";
 
 
 const stateControl = storeState();
@@ -32,6 +33,9 @@ function handleSampleForm() {
   const nameP = document.createElement("p");
   pTag.append(document.getElementById("daisy").value);
   document.getElementById("name-value").append(lightP);
+  const happinessP = document.createElement("p");
+  pTag.append(document.getElementById("happiness").value);
+  document.getElementById("happiness-value").append(happinessP);
   
 }
 
@@ -48,27 +52,38 @@ window.onload = function() {
 
   document.getElementById('blue-food').onclick = function() {
     const newState = stateControl(blueFood);
-    increasePlantImgSize(5);
-    document.getElementById('soil-value').innerText = `Soil: ${newState.soil}`;
+    increasePlantImgSize(50);
+    document.getElementById('soil-value').innerText = `${newState.soil}`;
   };
 
   document.getElementById('hydrate').onclick = function() {
     const newState = stateControl(hydrate);
-    increasePlantImgSize(1);
-    document.getElementById('water-value').innerText = `Water: ${newState.water}`;
+    increasePlantImgSize(10);
+    document.getElementById('water-value').innerText = `${newState.water}`;
   };
   
   document.getElementById('sunlight').onclick = function() {
     const newState = stateControl(light);
-    increasePlantImgSize(1);
-    document.getElementById('light-value').innerText = `Sunlight: ${newState.light}`;
+    increasePlantImgSize(10);
+    document.getElementById('light-value').innerText = `${newState.light}`;
   };
   
-  document.getElementById('daisy').onclick = function() {
+  document.getElementById('grow-daisy').onclick = function() {
     const newDaisy = plantType({})("daisy");
-    console.log(newDaisy);
-    document.getElementById('name-value').innerText = `Name: ${newDaisy.name}`;
+    document.getElementById('name-value').innerText = `${newDaisy.name}`;
     document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
+  };
+
+  document.getElementById('grow-rose').onclick = function() {
+    const newRose = plantType({})("rose");  
+    document.getElementById('name-value').innerText = `${newRose.name}`;
+    document.getElementById("plantImg").setAttribute("src","./assets/images/rose.png");
+  };
+
+  document.getElementById('happiness').onclick = function() {
+    const newDaisy = plantType({})(happier);                  
+    console.log(newDaisy);
+    document.getElementById('happiness-value').innerText = `${newDaisy.happiness}`;    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
   };
 
   

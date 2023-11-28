@@ -5,25 +5,31 @@
     <title>Grow Your Plant</title>
   </head>
   <body>
-    <h2>Pick your Plant to Grow<h2>
-      <h3><
-    <button id="plant">Houseplant</button>
-    <button id="daisy">Daisy</button>
-    <button id="rose">Rose</button>
-      </h3>
-    <h3>Your Plant's Values</h3>
-    <h3><div id="soil-value">0</div></h3>
-    <h3><div id="water-value">0</div></h3>
-    <h3><div id="light-value">0</div></h3>
-    <h3><div id="happiness-value">0</div></h3>
-    <h3><div id="name-value">plant</div></h3>
-    <div>
-    <button id="blue-food">Add 5 soil</button>
-    <button id="hydrate">Add 1 water</button>
-    <button id="sunlight">Add 1 sunlight</button>
-    <button id="happiness">Add 1 sunlight</button>
+    <div id="plantPicker">
+      <h2>🌱 Pick your Plant to Grow 🌱<h2>
+      <button id="grow-plant">Houseplant</button>
+      <button id="grow-daisy">Daisy</button>
+      <button id="grow-rose">Rose</button>
     </div>
 
+    <br><br>
+
+    <div id="plantValues">
+      <h3>Your Plant's Values</h3>
+      <h3>Soil: <span id="soil-value">0</span></h3>
+      <h3>Water: <span id="water-value">0</span></h3>
+      <h3>Sunlight: <span id="light-value">0</span></h3>
+      <h3>Happiness: <span id="happiness-value">0</span></h3>
+      <h3>Name: <span id="name-value">houseplant</span></h3>
+      <div>
+      <button id="blue-food">Add 5 soil</button>
+      <button id="hydrate">Add 1 water</button>
+      <button id="sunlight">Add 1 sunlight</button>
+      <button id="happiness">Add 1 happiness</button>
+      </div>
+    </div>
+
+    <br>
     <img src="./assets/images/houseplant.png" id="plantImg" style="width:auto;height:10px;">
 
   </body>

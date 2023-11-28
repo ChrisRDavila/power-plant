@@ -5,3 +5,13 @@ body {
 .deadPlant {
   filter: brightness(0%); 
 }
+
+#plantPicker {
+  text-align: center;
+  margin: 20px;
+}
+
+#plantValues {
+  text-align: center;
+  margin: 20px;
+}
