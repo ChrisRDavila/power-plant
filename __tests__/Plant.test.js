@@ -2,7 +2,7 @@ import { changeState } from "../src/js/Plant.js"
 
 describe(changeState, () => {
   
-    let state;
+  let state;
   beforeEach(() => {
     state = { 
       prop: 0
@@ -11,8 +11,8 @@ describe(changeState, () => {
 
   test('should change state for selected property of object, and return new state', () => {
     const property = "prop";
-    const newState = changeState(state, property);
-    expect(newState[property]).toEqual(1)
+    const newState = changeState(state, property, 2);
+    expect(newState[property]).toEqual(2)
   });
 })
 
