@@ -19,6 +19,7 @@ function handleSampleForm() {
   document.getElementById("water-value").innerText = null;
   document.getElementById("light-value").innerText = null;
   document.getElementById("name-value").innerText = null;
+  document.getElementById("happiness-value").innerText = null;
   const soilP = document.createElement("p");
   pTag.append(document.getElementById("blue-food").value);
   document.getElementById("soil-value").append(soilP);document.getElementById("soil-value").innerText = null;
@@ -66,7 +67,11 @@ window.onload = function() {
   document.getElementById('daisy').onclick = function() {
     const newDaisy = plantType({})("daisy");
     console.log(newDaisy);
+    document.getElementById('name-value').innerText = `Name: ${newDaisy.name}`;
+    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
   };
+
+  
 };
 
 
