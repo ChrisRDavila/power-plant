@@ -1,6 +1,4 @@
-// import { hydrate } from "../src/js/Plant.js"
-// import { feed } from "../src/js/Plant.js"
-import { changePlantState } from "..src/js/Plant.js"
+import { changePlantState } from "../src/js/Plant.js"
 
 describe(changePlantState, () => {
   
@@ -12,10 +10,10 @@ describe(changePlantState, () => {
   });
 
   test('should change state for selected property of plant, and return new state', () => {
-    const newStatePlant = changePlantState(plant, property);
     const property = "water";
+    const newStatePlant = changePlantState(plant, property);
     expect(newStatePlant[property]).toEqual(1)
-});
+  });
 })
 
 // describe(hydrate, () => {
