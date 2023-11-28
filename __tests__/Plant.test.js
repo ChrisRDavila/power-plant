@@ -10,7 +10,7 @@ describe(changeState, () => {
   });
 
   test('should change state for selected property of object, and return new state', () => {
-    const property = prop;
+    const property = "prop";
     const newState = changeState(state, property);
     expect(newState[property]).toEqual(1)
   });
