@@ -1,5 +1,5 @@
-import { hydrate } from "../src/js/Plant.js"
-import { feed } from "../src/js/Plant.js"
+// import { hydrate } from "../src/js/Plant.js"
+// import { feed } from "../src/js/Plant.js"
 import { changePlantState } from "..src/js/Plant.js"
 
 describe(changePlantState, () => {
