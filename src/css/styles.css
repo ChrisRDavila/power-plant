@@ -2,6 +2,10 @@ body {
   background-color: lightblue;
 }
 
+.hidden {
+  display: none;
+}
+
 .deadPlant {
   filter: brightness(0%); 
 }
@@ -14,4 +18,17 @@ body {
 #plantValues {
   text-align: center;
   margin: 20px;
+}
+
+#plantDiv {
+  text-align: center;
+  margin: 20px;
+}
+
+#plantImg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transition: height 100s linear;
+  transition-delay: 10s;
 }

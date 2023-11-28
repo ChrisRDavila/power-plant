@@ -37,40 +37,28 @@ export function plantType(state) {
   }
 }  
 
-
-// export const daisy = (name, color) => {
-//   let state = {
-//     name: "daisy",
-//     change: "flower"
-//   };
-//   return {...state}
+// export const killDaisy = (state) => {
+//   return {...state, change: "dead"}
 // }
 
-// export const daisy = (name) => {
-//   let state = daisyState {
-    
-//   }
-// }
+export const happier = (state) => {
+  return (value) => {
+      return (state) => (
+        {
+          ...state,
+          happiness: (state.happiness) + 1
+        }
+      )
+  }
+}
 
-// let fireDragonJoe = Object.create(dragons);
-// Object.keys(fireDragonJoe) 
 
 export const blueFood = changeState("soil")(5);
 export const hydrate = changeState("water")(1);
 export const light = changeState("light")(1);
 
 
-// export const killDaisy = (daisy) => {
-//   return (value) => {
-//     return (state) => (
-//     ...daisy,
-//     change: "dead"
-//   }
-// } 
 
-export const killDaisy = (state) => {
-  return {...state, change: "dead"}
-}
 
 
 

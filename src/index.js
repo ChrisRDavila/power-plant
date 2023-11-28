@@ -43,7 +43,7 @@ function increasePlantImgSize(amount) {
   const plantImg = document.getElementById("plantImg");
   const currentPlantSize = plantImg.style.height;
   let numericalCurrentPlantSize = currentPlantSize.substring(0, currentPlantSize.length - 2);
-  let newPlantSize = parseInt(numericalCurrentPlantSize) + parseInt(amount);
+  let newPlantSize = parseInt(numericalCurrentPlantSize) - parseInt(amount);
   plantImg.style.height = `${newPlantSize}px`;
 }
 
@@ -86,7 +86,17 @@ window.onload = function() {
     document.getElementById('happiness-value').innerText = `${newDaisy.happiness}`;    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
   };
 
-  
+  document.getElementById('kill-plant').onclick = function() {
+    document.getElementById("plantImg").setAttribute("class","deadPlant");
+    document.getElementById("kill-plant").setAttribute("class","hidden");
+    document.getElementById("new-plant").removeAttribute("class");
+  };
+
+  document.getElementById('new-plant').onclick = function() {
+    document.getElementById("plantImg").removeAttribute("class");
+    document.getElementById("kill-plant").removeAttribute("class");
+    document.getElementById("new-plant").setAttribute("class","hidden");
+  };
 };
 
 
