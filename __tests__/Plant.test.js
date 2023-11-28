@@ -11,7 +11,8 @@ describe(changeState, () => {
 
   test('should change state for selected property of object, and return new state', () => {
     const property = "prop";
-    const newState = changeState(state, property, 2);
+    const value = 2;
+    const newState = changeState(property)(value)(state);
     expect(newState[property]).toEqual(2)
   });
 })
