@@ -24,6 +24,7 @@ export function plantType(state) {
       return {
         ...state,
         name: "Daisy",
+        size: 10,
         happiness: 4,
       }
     }
@@ -31,12 +32,14 @@ export function plantType(state) {
       return {
         ...state,
         name: "Rose",
+        size: 10,
         smelliness: 5,
       }
     } else {
       return {
         ...state,
         name: "Common houseplant",
+        size: 10,
         rarity: 0,
       }
     }
@@ -52,7 +55,7 @@ export const happier = (state) => {
       return (state) => (
         {
           ...state,
-          happiness: (state.happiness) + 1
+          happiness: (state.happiness || 0) + 1
         }
       )
   }

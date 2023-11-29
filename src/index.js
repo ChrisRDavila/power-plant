@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import { changeState } from "../src/js/Plant.js";
 import { storeState } from "../src/js/Plant.js";
-import { daisy } from "../src/js/Plant.js";
+import { growPlant } from "../src/js/Plant.js";
 import { blueFood } from "../src/js/Plant.js";
 import { hydrate } from "../src/js/Plant.js";
 import { light } from "../src/js/Plant.js";
@@ -36,18 +36,48 @@ function handleSampleForm() {
   const happinessP = document.createElement("p");
   pTag.append(document.getElementById("happiness").value);
   document.getElementById("happiness-value").append(happinessP);
-  
+}
+
+let currentSize = 300;
+let targetSize = 10;
+let animationID;
+
+function shrinkPlant() {
+  const plantImg = document.getElementById("plantImg");
+
+  function animate() {
+    if (currentSize <= targetSize) {
+      cancelAnimationFrame(animationID);
+    } else {
+      currentSize -= .25 ;
+      plantImg.style.height = `${currentSize}px`;
+      animationID = requestAnimationFrame(animate);
+    }
+  }
+  animate();
 }
 
 function increasePlantImgSize(amount) {
-  const plantImg = document.getElementById("plantImg");
-  const currentPlantSize = plantImg.style.height;
-  let numericalCurrentPlantSize = currentPlantSize.substring(0, currentPlantSize.length - 2);
-  let newPlantSize = parseInt(numericalCurrentPlantSize) + parseInt(amount);
-  plantImg.style.height = `${newPlantSize}px`;
+  // const plantImg = document.getElementById("plantImg");
+  // const currentPlantSize = plantImg.style.height;
+  // let numericalCurrentPlantSize = currentPlantSize.substring(0, currentPlantSize.length - 2);
+  // let newPlantSize = parseInt(numericalCurrentPlantSize) + parseInt(amount);
+  // plantImg.style.height = `${newPlantSize}px`;
+  console.log(plantImg.style.height);
+  currentSize += parseInt(amount);
 }
 
+function newPlant() {
+  document.getElementById("plantImg").removeAttribute("class");
+  document.getElementById("kill-plant").removeAttribute("class");
+  document.getElementById("new-plant").setAttribute("class","hidden");
+}
 
+function killPlant() {
+  document.getElementById("plantImg").setAttribute("class","deadPlant");
+  document.getElementById("kill-plant").setAttribute("class","hidden");
+  document.getElementById("new-plant").removeAttribute("class");
+}
 
 window.onload = function() {
 
@@ -69,15 +99,22 @@ window.onload = function() {
     document.getElementById('light-value').innerText = `${newState.light}`;
   };
   
-  document.getElementById('grow-daisy').onclick = function() {
+  document.getElementById('select-daisy').onclick = function() {
+    killPlant();
+    newPlant();
+    shrinkPlant();
     const newDaisy = plantType({})("daisy");
     document.getElementById('name-value').innerText = `${newDaisy.name}`;
+    document.getElementById('happiness-value').innerText = `${newState.happiness}`
     const plantImg = document.getElementById("plantImg");
     plantImg.setAttribute("src","./assets/images/daisy.png");
     plantImg.removeAttribute("class");
   };
 
-  document.getElementById('grow-rose').onclick = function() {
+  document.getElementById('select-rose').onclick = function() {
+    killPlant();
+    newPlant();
+    shrinkPlant();
     const newRose = plantType({})("rose");  
     document.getElementById('name-value').innerText = `${newRose.name}`;
     const plantImg = document.getElementById("plantImg");
@@ -85,7 +122,10 @@ window.onload = function() {
     plantImg.removeAttribute("class");
   };
 
-  document.getElementById('grow-houseplant').onclick = function() {
+  document.getElementById('select-houseplant').onclick = function() {
+    killPlant();
+    newPlant();
+    shrinkPlant();
     const newHouseplant = plantType({})("houseplant");  
     document.getElementById('name-value').innerText = `${newHouseplant.name}`;
     const plantImg = document.getElementById("plantImg");
@@ -94,21 +134,19 @@ window.onload = function() {
   };
 
   document.getElementById('happiness').onclick = function() {
-    const newState = stateControl(happier);                  
-    console.log(newDaisy);
-    document.getElementById('happiness-value').innerText = `${newState.happie}`;    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
+    const newState = plantType({})("daisy");
+    happier(newState);                  
+    console.log(newState);
+    document.getElementById('happiness-value').innerText = `${newState.happiness}`;
+    //     document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
   };
 
   document.getElementById('kill-plant').onclick = function() {
-    document.getElementById("plantImg").setAttribute("class","deadPlant");
-    document.getElementById("kill-plant").setAttribute("class","hidden");
-    document.getElementById("new-plant").removeAttribute("class");
+    killPlant();
   };
 
   document.getElementById('new-plant').onclick = function() {
-    document.getElementById("plantImg").removeAttribute("class");
-    document.getElementById("kill-plant").removeAttribute("class");
-    document.getElementById("new-plant").setAttribute("class","hidden");
+    newPlant();
   };
 };
 
