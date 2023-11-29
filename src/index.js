@@ -43,9 +43,10 @@ function increasePlantImgSize(amount) {
   const plantImg = document.getElementById("plantImg");
   const currentPlantSize = plantImg.style.height;
   let numericalCurrentPlantSize = currentPlantSize.substring(0, currentPlantSize.length - 2);
-  let newPlantSize = parseInt(numericalCurrentPlantSize) - parseInt(amount);
+  let newPlantSize = parseInt(numericalCurrentPlantSize) + parseInt(amount);
   plantImg.style.height = `${newPlantSize}px`;
 }
+
 
 
 window.onload = function() {
@@ -71,19 +72,31 @@ window.onload = function() {
   document.getElementById('grow-daisy').onclick = function() {
     const newDaisy = plantType({})("daisy");
     document.getElementById('name-value').innerText = `${newDaisy.name}`;
-    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
+    const plantImg = document.getElementById("plantImg");
+    plantImg.setAttribute("src","./assets/images/daisy.png");
+    plantImg.removeAttribute("class");
   };
 
   document.getElementById('grow-rose').onclick = function() {
     const newRose = plantType({})("rose");  
     document.getElementById('name-value').innerText = `${newRose.name}`;
-    document.getElementById("plantImg").setAttribute("src","./assets/images/rose.png");
+    const plantImg = document.getElementById("plantImg");
+    plantImg.setAttribute("src","./assets/images/rose.png");
+    plantImg.removeAttribute("class");
+  };
+
+  document.getElementById('grow-houseplant').onclick = function() {
+    const newHouseplant = plantType({})("houseplant");  
+    document.getElementById('name-value').innerText = `${newHouseplant.name}`;
+    const plantImg = document.getElementById("plantImg");
+    plantImg.setAttribute("src","./assets/images/houseplant.png");
+    plantImg.removeAttribute("class");
   };
 
   document.getElementById('happiness').onclick = function() {
-    const newDaisy = plantType({})(happier);                  
+    const newState = stateControl(happier);                  
     console.log(newDaisy);
-    document.getElementById('happiness-value').innerText = `${newDaisy.happiness}`;    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
+    document.getElementById('happiness-value').innerText = `${newState.happie}`;    document.getElementById("plantImg").setAttribute("src","./assets/images/daisy.png");
   };
 
   document.getElementById('kill-plant').onclick = function() {

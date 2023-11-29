@@ -23,15 +23,21 @@ export function plantType(state) {
     if (type === "daisy") {
       return {
         ...state,
-        name: "daisy",
+        name: "Daisy",
         happiness: 4,
       }
     }
     else if (type === "rose") {
       return {
         ...state,
-        name: "rose",
+        name: "Rose",
         smelliness: 5,
+      }
+    } else {
+      return {
+        ...state,
+        name: "Common houseplant",
+        rarity: 0,
       }
     }
   }
