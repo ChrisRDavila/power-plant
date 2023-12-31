@@ -1,6 +1,8 @@
-# HTML/CSS/JS Project Template (Application Name)
+# Power Plant
 
-#### (Brief Description of Application)
+#### practice with functional programming and handling state
+
+#### By Christopher Davila
 
 #### By github.com/mejia-dev
 
